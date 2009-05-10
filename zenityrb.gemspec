@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
     with a ruby-ish syntax.
   EOF
   
-  spec.summary = 'Ruby-ish syntax for zenity dialogs.'
+  spec.summary = 'Ruby-ish syntax for zenity GTK dialogs.'
 
 
 end
