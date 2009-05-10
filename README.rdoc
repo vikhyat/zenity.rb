@@ -1,0 +1,23 @@
+= zenity.rb
+
+Zenity is a tool that is used to display GTK dialog boxes from the command line,
+often from shell scripts. From it's {Freshmeat page}[http://freshmeat.net/projects/zenity],
+
+  Zenity is a tool that allows you to display Gtk+ dialog boxes from the command 
+  line and through shell scripts. It is similar to gdialog, but is intended to 
+  be saner. It comes from the same family as dialog, Xdialog, and cdialog, 
+  but it surpasses those projects by having a cooler name. 
+
+This tool offers a easy way to use Zenity in your scripts with a Ruby-ish
+syntax. For example, this code:
+
+  Zenity::entry(:title => 'Enter some text', :text => 'This is a password dialog.', :arg => ['hide-text'])
+  
+gets translated to this bash command:
+
+  zenity --entry --title='Enter some text' --text='This is a password dialog.' --hide-text
+  
+== LICENSE
+
+Look at the COPYING file. (It's the MIT License)
+

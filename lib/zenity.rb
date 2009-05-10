@@ -17,29 +17,29 @@ module Zenity
         :warning,
         :scale
       ].include? m
-      ret = %x[ #{parseopts('zenity --' + m.to_s, options)} ]
-    else
-      raise "Unknown dialog #{m}"
-    end
-    if ret.rstrip == 'This option is not available. Please see --help for all possible usages.'
-      raise "Invalid option"
-    else
-      return ret
-    end
-  end
-
-
-  private
-  def parseopts(cmd, options)
-    if options != false
-      options.each do |k, v|
-        cmd << " --#{k}='#{v}'" if k != :arg
+        ret = %x[ #{parseopts('zenity --' + m.to_s, options)} ]
+      else
+        raise "Unknown dialog #{m}"
       end
-      options[:arg].each { |opt| cmd << " --#{opt}" } if options.has_key?(:arg)
+      if ret.rstrip == 'This option is not available. Please see --help for all possible usages.'
+        raise "Invalid option"
+      else
+        return ret
+      end
     end
-    cmd
-  end
 
-end
+
+    private
+    def parseopts(cmd, options)
+      if options != false
+        options.each do |k, v|
+          cmd << " --#{k}='#{v}'" if k != :arg
+        end
+        options[:arg].each { |opt| cmd << " --#{opt}" } if options.has_key?(:arg)
+      end
+      cmd
+    end
+
+  end
 end
 
