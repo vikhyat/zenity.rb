@@ -1,5 +1,4 @@
-require './lib/zenity'
+require 'lib/zenity'
 
-include Zenity
-
-puts Zenity.calendar(:title => 'Select a date')
+puts Zenity::entry(:title => 'Enter some text', :text => 'This is a password dialog.', :arg => ['hide-text'])
+puts Zenity::calendar(:title => 'Select a date')
