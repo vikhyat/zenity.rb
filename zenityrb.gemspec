@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.author = "Vikhyat Korrapati"
   spec.email = "vikhyatk@gmail.com"
   spec.homepage = "http://aetus.net/"
+  spec.rubyforge_project = "Zenity.rb"
   
   spec.description = <<-EOF
     Zenity.rb allows you to use Zenity to display GTK dialog boxes
