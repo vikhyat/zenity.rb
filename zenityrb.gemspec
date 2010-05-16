@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
 
   spec.author = "Vikhyat Korrapati"
   spec.email = "vikhyatk@gmail.com"
-  spec.homepage = "http://aetus.net/"
+  spec.homepage = "http://vikhyat.net/"
   spec.rubyforge_project = "zenityrb"
   
   spec.description = <<-EOF
