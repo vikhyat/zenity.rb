@@ -44,7 +44,6 @@ module Zenity
         options[:arg].each { |opt| cmd << " --#{opt}" } if options.has_key?(:arg)
         options[:list_entries].each { |e| cmd << " \"#{e}\"" } if options.has_key?(:list_entries)
       end
-      puts cmd
       cmd
     end
 
