@@ -5,7 +5,7 @@ module Zenity
     def method_missing(m, options=false)
       # Check if the dialog box we have to show is allowed
       if [ :calendar, :entry, :error, :'file-selection', :info, :list,
-           :notification, :progress, :question, :'text-info', :warning, :scale 
+           :notification, :progress, :question, :'text-info', :warning, :scale
       ].include? m
         # It's in the array and everything seems to be fine
         ret = %x[ #{parseopts('zenity --' + m.to_s, options)} ]
@@ -30,9 +30,19 @@ module Zenity
     def parseopts(cmd, options)
       if options != false
         options.each do |k, v|
-          cmd << " --#{k}='#{v}'" if k != :arg
+          if k != :arg && k != :list_entries
+            if v.is_a? Array
+              v.each do |vv|
+                cmd << " --#{k}='#{vv}'"
+              end
+            else
+              cmd << " --#{k}='#{v}'"
+            end
+          end
         end
+
         options[:arg].each { |opt| cmd << " --#{opt}" } if options.has_key?(:arg)
+        options[:list_entries].each { |e| cmd << " \"#{e}\"" } if options.has_key?(:list_entries)
       end
       cmd
     end
