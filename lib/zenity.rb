@@ -20,7 +20,12 @@ module Zenity
         STDERR << "Invalid option"
       else
         # Everything looks fine. Return what we got.
-        return ret
+        if $? == 0
+          return ret
+        else
+          return false
+        end
+
       end
     end
 
